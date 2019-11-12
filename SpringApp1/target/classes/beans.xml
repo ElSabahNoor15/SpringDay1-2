@@ -1,0 +1,30 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+http://www.springframework.org/schema/beans/spring-beans-2.5.xsd">
+
+<bean class="org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor"/>
+
+<bean id="c1" class=" com.SpringApp1.model.Candidate"  init-method="myInit" destroy-method="myDestroy">
+<property name="name" value="Sana"></property>
+<property name="age" value="21"></property>
+<property name="address" value="kanpur"></property>
+   
+</bean>	
+<bean id="dao" class=" com.SpringApp1.service.MathService"  ></bean>
+<bean id="sc" class=" com.SpringApp1.model.SpellChecker"  ></bean>
+<bean id="te" class=" com.SpringApp1.model.TextEditor"  >
+<!-- <property name="spellchecker" ref="sc"/>	 -->
+<constructor-arg type="SpellChecker" ref="sc"></constructor-arg>
+</bean>
+<bean id="department" class=" com.SpringApp1.model.Department"  >
+<property name="name" value="sales"></property></bean>
+<bean id="emp" class=" com.SpringApp1.model.Employee"  autowire="byName" >
+<property name="fullname" value="samrat_ghosal"></property></bean>
+
+<bean id="category" class=" com.SpringApp1.model.Category"  >
+<property name="name" value="cosmetics"></property></bean>
+<bean id="pro" class=" com.SpringApp1.model.Product"  autowire="byName" >
+<property name="pname" value="Lakme"></property></bean>
+
+</beans>
